@@ -44,8 +44,10 @@ struct ContentView: View {
             activeSubscription = nil
 
             DittoManager.shared.ditto.store.write { trx in
-                Brand.allCases.forEach({ brand in
-                    trx["cars"].find("brand == $args.brand", args: ["brand": brand.rawValue]).evict()
+                Brand.allCases.forEach({ thisBrand in
+                    if (thisBrand != brand) {
+                        trx["cars"].find("brand == $args.brand", args: ["brand": thisBrand.rawValue]).evict()
+                    }
                 })
             }
 

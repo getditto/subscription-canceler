@@ -16,6 +16,7 @@
 		2D1B58CC299F669E001F969F /* DittoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1B58CB299F669E001F969F /* DittoManager.swift */; };
 		2D1B58CF299F66FE001F969F /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1B58CE299F66FE001F969F /* Car.swift */; };
 		2D1B58D2299F68CC001F969F /* Fakery in Frameworks */ = {isa = PBXBuildFile; productRef = 2D1B58D1299F68CC001F969F /* Fakery */; };
+		2DFD102629A4E2FA004F698B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DFD102529A4E2FA004F698B /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		2D1B58CB299F669E001F969F /* DittoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DittoManager.swift; sourceTree = "<group>"; };
 		2D1B58CE299F66FE001F969F /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		2D1B58D3299F6991001F969F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2DFD102529A4E2FA004F698B /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				2D1B58BA299F6613001F969F /* ContentView.swift */,
 				2D1B58BC299F6615001F969F /* Assets.xcassets */,
 				2D1B58BE299F6615001F969F /* Preview Content */,
+				2DFD102529A4E2FA004F698B /* Launch Screen.storyboard */,
 			);
 			path = SubscriptionCanceler;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DFD102629A4E2FA004F698B /* Launch Screen.storyboard in Resources */,
 				2D1B58C0299F6615001F969F /* Preview Assets.xcassets in Resources */,
 				2D1B58BD299F6615001F969F /* Assets.xcassets in Resources */,
 			);
@@ -310,6 +314,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -343,6 +348,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -387,7 +393,7 @@
 			repositoryURL = "https://github.com/getditto/DittoSwiftPackage";
 			requirement = {
 				kind = exactVersion;
-				version = 3.0.4;
+				version = 3.0.5;
 			};
 		};
 		2D1B58D0299F68CC001F969F /* XCRemoteSwiftPackageReference "Fakery" */ = {

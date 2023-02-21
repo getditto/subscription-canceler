@@ -24,13 +24,4 @@ class DittoManager {
         }
     }
 
-    func createCarsByBrand(brand: Brand) {
-        let faker = Faker()
-        ditto.store.write { trx in
-            for _ in 0..<100 {
-                let _  = try? trx["cars"].upsert(Car(id: UUID().uuidString, brand: brand.rawValue, color: faker.commerce.color(), mileage: faker.number.randomInt()).asDittoDocumentDictionary)
-            }
-        }
-    }
-
 }

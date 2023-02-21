@@ -40,17 +40,14 @@ struct ContentView: View {
         }
 
         func subscribeToBrandAndEvictOthers(brand: Brand) {
+            // cancel the active subscription
             activeSubscription?.cancel()
             activeSubscription = nil
 
-            DittoManager.shared.ditto.store.write { trx in
-                Brand.allCases.forEach({ thisBrand in
-                    if (thisBrand != brand) {
-                        trx["cars"].find("brand == $args.brand", args: ["brand": thisBrand.rawValue]).evict()
-                    }
-                })
-            }
+            // evict all the other brands
+            DittoManager.shared.ditto.store["cars"].find("brand != $args.brand", args: ["brand": brand.rawValue]).evict()
 
+            // subscribe to the new brand
             subscribedToBrand = brand
             activeSubscription = DittoManager.shared.ditto.store["cars"].find("brand == $args.brand", args: ["brand": brand.rawValue]).subscribe()
         }
@@ -65,6 +62,7 @@ struct ContentView: View {
                 ForEach(Brand.allCases, id: \.self) { brand in
                     HStack {
                         Image(systemName: brand == viewModel.subscribedToBrand ? "circle.fill" : "circle")
+                            .renderingMode(.template)
                             .resizable()
                             .tint(.blue)
                             .frame(width: 25, height: 25)

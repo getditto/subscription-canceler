@@ -58,35 +58,38 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            List {
-                ForEach(Brand.allCases, id: \.self) { brand in
-                    HStack {
-                        Image(systemName: brand == viewModel.subscribedToBrand ? "circle.fill" : "circle")
-                            .renderingMode(.template)
-                            .resizable()
-                            .tint(.blue)
-                            .frame(width: 25, height: 25)
+            VStack {
+                Text("Ditto SDK version \(DittoManager.shared.ditto.sdkVersion)")
+                List {
+                    ForEach(Brand.allCases, id: \.self) { brand in
+                        HStack {
+                            Image(systemName: brand == viewModel.subscribedToBrand ? "circle.fill" : "circle")
+                                .renderingMode(.template)
+                                .resizable()
+                                .tint(.blue)
+                                .frame(width: 25, height: 25)
 
-                        VStack(alignment: .leading) {
-                            Text(brand.rawValue)
-                                .font(.title)
-                                .bold()
-                            Text("Documents \(viewModel.cars.filter({ $0.brand == brand.rawValue }).count)")
-                            HStack {
-                                Button("Create cars") {
-                                    viewModel.createCarsByBrand(brand: brand)
+                            VStack(alignment: .leading) {
+                                Text(brand.rawValue)
+                                    .font(.title)
+                                    .bold()
+                                Text("Documents \(viewModel.cars.filter({ $0.brand == brand.rawValue }).count)")
+                                HStack {
+                                    Button("Create cars") {
+                                        viewModel.createCarsByBrand(brand: brand)
+                                    }
+                                    .tint(.green)
+                                    .buttonStyle(.bordered)
+                                    Spacer()
+                                    Button("Subscribe and Evict Others") {
+                                        viewModel.subscribeToBrandAndEvictOthers(brand: brand)
+                                    }
+                                    .foregroundColor(.red)
+                                    .buttonStyle(.bordered)
                                 }
-                                .tint(.green)
-                                .buttonStyle(.bordered)
-                                Spacer()
-                                Button("Subscribe and Evict Others") {
-                                    viewModel.subscribeToBrandAndEvictOthers(brand: brand)
-                                }
-                                .foregroundColor(.red)
-                                .buttonStyle(.bordered)
                             }
+                            .padding()
                         }
-                        .padding()
                     }
                 }
             }
